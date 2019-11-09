@@ -1,31 +1,67 @@
 package com.okhttp.retrofittest_v2.bean;
 
 public class BeanContent {
-    private BeanAndroidContent data;
-    private String errorCode;
-    private String errorMsg;
+    private int curPage;
+    private BeanAndroidContent datas;
+    private int offset;
+    private boolean over;
+    private int pageCount;
+    private int size;
+    private int total;
 
-    public BeanAndroidContent getData(){
-        return data;
+    public int getCurPage(){
+        return curPage;
     }
 
-    public void setDatas(BeanAndroidContent data){
-        this.data = data;
+    public void setCurPage(int curPage){
+        this.curPage = curPage;
     }
 
-    public String getErrorCode(){
-        return errorCode;
+    public BeanAndroidContent getDatas(){
+        return datas;
     }
 
-    public void setErrorCode(String errorCode){
-        this.errorCode = errorCode;
+    public void setDatas(BeanAndroidContent datas){
+        this.datas = datas;
     }
 
-    public String getErrorMsg(){
-        return errorMsg;
+    public int getOffset(){
+        return offset;
     }
 
-    public void setErrorMsg(String errorMsg){
-        this.errorMsg = errorMsg;
+    public void setOffset(int offset){
+        this.offset = offset;
+    }
+
+    public boolean getOver(){
+        return over;
+    }
+
+    public void setpa(boolean over){
+        this.over = over;
+    }
+
+    public int getPageCount(){
+        return pageCount;
+    }
+
+    public void setPageCount(int pageCount){
+        this.pageCount = pageCount;
+    }
+
+    public int getSize(){
+        return size;
+    }
+
+    public void setSize(int size){
+        this.size = size;
+    }
+
+    public int getTotal(){
+        return total;
+    }
+
+    public void setTotal(int offset){
+        this.total = total;
     }
 }

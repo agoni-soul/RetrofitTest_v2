@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.okhttp.retrofittest_v2.bean.BeanAndroidContent;
 import com.okhttp.retrofittest_v2.bean.BeanContent;
+import com.okhttp.retrofittest_v2.bean.BeanData;
 import com.okhttp.retrofittest_v2.retrofit.IBeanService;
 import com.okhttp.retrofittest_v2.retrofit.Retrofit;
 
@@ -57,18 +58,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(MainActivity.this, "请输入ID", Toast.LENGTH_SHORT).show();
             return;
         }
-        retrofit2.Call<BeanContent> call = service.getMenuById(num);
-        call.enqueue(new Callback<BeanContent>() {
+        int id = Integer.parseInt(num);
+        retrofit2.Call<BeanData> call = service.getMenuById(id);
+//        retrofit2.Call<BeanData> call = service.getData();
+        call.enqueue(new Callback<BeanData>() {
             @Override
-            public void onResponse(retrofit2.Call<BeanContent> call, Response<BeanContent> response) {
+            public void onResponse(retrofit2.Call<BeanData> call, Response<BeanData> response) {
                 //判断是否请求成功
                 if (response.isSuccessful()) {
-                    BeanContent result = response.body();//关键
+                    BeanData result = response.body();//关键
                     //判断result数据是否为空
                     if (result != null) {
-                        BeanAndroidContent data = result.getData();
+                        BeanAndroidContent content = result.getData().getDatas();
                         String errorMsg = result.getErrorMsg();
-                        mTextView.setText("data="+data.getTitle()+"\nniceDate="+errorMsg);
+                        mTextView.setText("title="+content.getTitle()+"\nniceDate="+errorMsg);
                     }else{
                         Log.d("result != null", "false");
                     }
@@ -78,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             @Override
-            public void onFailure(Call<BeanContent> call, Throwable t) {
+            public void onFailure(Call<BeanData> call, Throwable t) {
 
             }
         });
