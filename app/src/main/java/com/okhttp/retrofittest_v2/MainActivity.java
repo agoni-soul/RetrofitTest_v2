@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //判断是否请求成功
                 if (response.isSuccessful()) {
                     BeanContent result = response.body();//关键
+                    //判断result数据是否为空
                     if (result != null) {
                         BeanAndroidContent data = result.getData();
                         String errorMsg = result.getErrorMsg();
