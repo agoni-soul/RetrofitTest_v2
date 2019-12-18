@@ -4,7 +4,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Retrofit {
     private IBeanService service;
-    public static volatile String address = "";
 
     /**
      * 获取Retrofit实例
@@ -16,7 +15,7 @@ public class Retrofit {
 
     private Retrofit() {
         retrofit2.Retrofit retrofit = new retrofit2.Retrofit.Builder()
-                .baseUrl(address)
+                .baseUrl("https://www.wanandroid.com/user/login/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         service = retrofit.create(IBeanService.class);
