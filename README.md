@@ -1,2 +1,2 @@
 # RetrofitTest_v2
-第一次学习Retrofit，ton
+第一次学习Retrofit，通过查阅资料已经完成retrofit与RxJava的网络请求
